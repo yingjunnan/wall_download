@@ -93,7 +93,7 @@ func main() {
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "download.html", nil)
 	})
-	err := r.Run(":8080")
+	err := r.Run(":" + os.Args[1])
 	if err != nil {
 		return
 	}
