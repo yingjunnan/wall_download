@@ -8,15 +8,25 @@
 </head>
 <body>
 <div class="container">
-    <form action="/download" method="post" enctype="multipart/form-data">
+    <form >
         <div class="mb-3">
             <label class="form-label">下载地址</label>
             <input type="text" class="form-control" name="urls">
             <div  class="form-text">输入github上Releases的下载链接提交进行下载，下载成功会自动跳转到文件列表或者手动点击蓝色按钮查看已有文件</div>
         </div>
-        <button type="submit" class="btn btn-success">提交</button>
+        <button type="submit" class="btn btn-success" onclick="fn()" style="display: inline-flex; align-items: center;">
+            <span id="loadding" style="display: none;" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <div id="text">提交</div>
+        </button>
+
         <a class="btn btn-primary" href="/downloadFile" role="button">切换到下载页面</a>
     </form>
+    <script>
+        function fn(){
+            document.getElementById("loadding").style.display="inline-block";
+            document.getElementById("text").innerHTML="下载中";
+        }
+    </script>
 </div>
 </body>
 </html>
